@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CarStore - Início</title>
+</head>
+<body>
+<h1>Bem-vindo à CarStore</h1>
+<p>O melhor sistema para gerenciamento de veículos.</p>
+
+<form th:action="@{/login}" method="get">
+    <button type="submit">Fazer Login</button>
+</form>
+
+<form th:action="@{/cadastro}" method="get">
+    <button type="submit">Cadastrar-se</button>
+</form>
+</body>
+</html>

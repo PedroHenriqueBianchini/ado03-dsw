@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel - CarStore</title>
+</head>
+<body>
+<h1>Painel de Controle - CarStore</h1>
+<p>Gerencie seus carros e cadastros aqui.</p>
+
+<form th:action="@{/perfil}" method="get">
+    <button type="submit">Meu Perfil</button>
+</form>
+
+<form th:action="@{/logout}" method="get">
+    <button type="submit">Sair</button>
+</form>
+</body>
+</html>
