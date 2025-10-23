@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Carro</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+</head>
+<body>
+
+<!-- Importa a navbar -->
+<div th:replace="fragments :: navbar"></div>
+
+<!-- 🔹 Fragmento reutilizável -->
+<div th:fragment="car-form">
+    <div class="container mt-5">
+        <h1 class="mb-4" th:text="${carDTO.id} != 0 ? 'Editar Carro' : 'Novo Carro'"></h1>
+
+        <form th:action="${carDTO.id} != 0 ? @{'/admin/cars/update/' + ${carDTO.id}} : @{/admin/cars}"
+              th:object="${carDTO}" method="post">
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Nome:</label>
+                <input type="text" id="name" th:field="*{name}" class="form-control" placeholder="Digite o nome do carro">
+                <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="color" class="form-label">Cor:</label>
+                <input type="text" id="color" th:field="*{color}" class="form-control" placeholder="Digite a cor do carro">
+                <span class="text-danger" th:if="${#fields.hasErrors('color')}" th:errors="*{color}"></span>
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+                <a th:href="@{/admin/dashboard}" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script th:src="@{/webjars/jquery/3.7.1/jquery.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>
