@@ -19,7 +19,7 @@ public class StartupRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         car.save(new CarDTO("camaro", "amarelo"));
-        car.save(new CarDTO("subaru", "Preto"));
+        car.save(new CarDTO("subaru", "preto"));
         car.save((new CarDTO("volkswagen","banco")));
         System.out.println(car.findAll());
     }

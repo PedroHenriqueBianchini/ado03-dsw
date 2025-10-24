@@ -24,7 +24,7 @@ public class AdminController {
     public String dashboard(Model model) {
         List<CarDTO> cars = carService.findAll();
         model.addAttribute("cars", cars);
-        model.addAttribute("carDTO", new CarDTO()); // <- adicione isto
+        model.addAttribute("carDTO", new CarDTO());
         return "admin/dashboard";
     }
 
